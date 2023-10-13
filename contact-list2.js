@@ -65,6 +65,27 @@ agregarContacto({
   }
 });
 
+function actualizarContacto(id, nuevoInfo) {
+  const index = listaDeContactos.findIndex((contacto) => contacto.id === id);
+  if (index !== -1) {
+    listaDeContactos[index] = { ...listaDeContactos[index], ...nuevoInfo };
+  }
+}
+
+
+imprimirContactos(); 
+
+
+actualizarContacto(1, {
+  telefono: "301-675-8090",
+  ubicaciones: {
+    ciudad: "Bucaramanga",
+    direccion: "Edificio Dann Carlton"
+  }
+});
+
+imprimirContactos(); 
+
 
 imprimirContactos(); 
 borrarContacto(2); 
